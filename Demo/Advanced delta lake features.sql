@@ -31,4 +31,41 @@ select * from employees
 
 -- COMMAND ----------
 
+describe history employees;
 
+-- COMMAND ----------
+
+optimize employees
+zorder by id;
+
+-- COMMAND ----------
+
+describe history employees;
+
+-- COMMAND ----------
+
+describe detail employees;
+
+-- COMMAND ----------
+
+-- MAGIC %fs ls 'dbfs:/user/hive/warehouse/employees'
+
+-- COMMAND ----------
+
+vacuum employees;
+
+-- COMMAND ----------
+
+-- MAGIC %fs ls 'dbfs:/user/hive/warehouse/employees'
+
+-- COMMAND ----------
+
+select * from employees@v1
+
+-- COMMAND ----------
+
+drop table employees;
+
+-- COMMAND ----------
+
+ 
